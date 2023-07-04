@@ -12,7 +12,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <div className="fixed left-0 top-0 z-10 flex w-full flex-row items-center justify-between bg-white pb-8 pl-8 pr-8 pt-10 sm:justify-between sm:pb-8 sm:pl-8 sm:pr-8 sm:pt-20">
+      <div className="fixed left-0 top-0 z-10 flex w-full flex-row items-center justify-between bg-white pb-8 pl-8 pr-8 pt-10 sm:pb-8 sm:pl-8 sm:pr-8 sm:pt-20">
         <IoReorderThreeOutline
           onClick={() => setOpen(!open)}
           className="transform cursor-pointer text-4xl
@@ -59,7 +59,7 @@ export default function Navbar() {
         ${!open && 'scale-0'}`}
         />
         <a
-          href="/projects"
+          href="/"
           onClick={() => setOpen(!open)}
           className={`transform cursor-pointer text-xl
         transition
