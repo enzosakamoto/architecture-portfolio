@@ -1,3 +1,12 @@
+import Navbar from '../components/navbar/page'
+
 export default function Projects() {
-  return <h1>OIE</h1>
+  return (
+    <>
+      <Navbar />
+      <div>
+        <h1>PROJETOS</h1>
+      </div>
+    </>
+  )
 }
