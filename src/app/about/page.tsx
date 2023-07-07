@@ -7,7 +7,7 @@ import avatar from '../assets/avatar.png'
 export default function About() {
   const { english } = useLanguage()
   return (
-    <main className="flex h-auto flex-col gap-32 bg-gradient-to-b from-white via-blue-100 to-blue-200 py-40">
+    <main className="flex h-screen flex-col gap-32 bg-gradient-to-b from-white via-blue-100 to-blue-200 py-40">
       <Navbar english={english} />
       <section className="flex flex-col items-center justify-center gap-5">
         <p className="text-bold text-3xl font-bold sm:text-5xl">
@@ -15,11 +15,11 @@ export default function About() {
         </p>
         <div className="flex flex-col items-center justify-center gap-10 px-8 sm:px-16 md:px-32 xl:flex-row">
           <Image
-            className="flex w-1/2 justify-center drop-shadow-md sm:w-1/3 xl:w-10/12"
+            className="flex w-1/2 max-w-lg justify-center drop-shadow-md sm:w-1/3 xl:w-10/12"
             src={avatar}
             alt="Profile picture"
           />
-          <article className="flex flex-col justify-center gap-3 text-justify text-base lg:text-lg">
+          <article className="flex flex-col justify-center gap-3 text-base sm:text-justify lg:text-lg">
             <p>
               {english
                 ? 'My name is Enzo Yuji Sakamoto, I am 21 years old and I am from São Paulo, SP.'

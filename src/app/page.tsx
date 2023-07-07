@@ -8,7 +8,7 @@ export default function Home() {
   const { english, changeLanguage } = useLanguage()
 
   return (
-    <main className="h-auto bg-gradient-to-b from-white via-blue-100 to-blue-200 py-44 md:h-screen md:py-0">
+    <main className="h-screen bg-gradient-to-b from-white via-blue-100 to-blue-200 py-44 md:h-screen md:py-0">
       <Navbar english={english} />
       <section className="flex h-full w-full flex-col items-center justify-center gap-8 px-10 md:flex-row xl:gap-16">
         <div className="flex flex-col gap-0">
