@@ -15,7 +15,7 @@ export default function Navbar({ english }: NavbarProps) {
           href="/"
           className={`transform cursor-pointer select-none transition-all duration-200 hover:scale-105`}
         >
-          Home
+          Home<code className="ml-1 rounded-md bg-gray-300 px-1">/</code>
         </Link>
         <Link
           href="/about"
