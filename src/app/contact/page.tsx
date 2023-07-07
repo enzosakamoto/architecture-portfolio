@@ -1,5 +1,5 @@
 'use client'
-import Navbar from '../components/navbar/page'
+import Navbar from '../components/navbar/Navbar'
 import useLanguage from '../utils/language'
 
 export default function Contact() {
