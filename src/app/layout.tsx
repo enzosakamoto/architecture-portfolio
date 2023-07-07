@@ -1,11 +1,14 @@
 import './globals.css'
-import { Montserrat } from 'next/font/google'
+import { Fira_Code } from 'next/font/google'
 
-const montserrat = Montserrat({ subsets: ['latin'] })
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  weight: ['400', '500', '700']
+})
 
 export const metadata = {
-  title: 'Luigi Sakamoto - Portfolio',
-  description: 'Portfólio de arquitetura de Luigi Sakamoto'
+  title: 'Enzo Sakamoto - Portfolio',
+  description: 'Portfólio de Enzo Sakamoto'
 }
 
 export default function RootLayout({
@@ -15,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={firaCode.className}>{children}</body>
     </html>
   )
 }

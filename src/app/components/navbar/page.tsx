@@ -1,117 +1,47 @@
-'use client'
-import { useState } from 'react'
-import {
-  AiOutlineInstagram,
-  AiOutlineLinkedin,
-  AiOutlineMail
-} from 'react-icons/ai'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
-import { IoReorderThreeOutline, IoCloseOutline } from 'react-icons/io5'
+type NavbarProps = {
+  english: boolean
+}
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false)
+export default function Navbar({ english }: NavbarProps) {
+  const path = usePathname()
+
   return (
-    <>
-      <div className="fixed left-0 top-0 z-10 flex w-full flex-row items-center justify-between bg-white pb-8 pl-8 pr-8 pt-10 sm:pb-8 sm:pl-8 sm:pr-8 sm:pt-20">
-        <IoReorderThreeOutline
-          onClick={() => setOpen(!open)}
-          className="transform cursor-pointer text-4xl
-        transition
-        duration-500
-        hover:scale-110"
-        />
-        <header className="text-2xl sm:text-4xl">
-          <a href="/">LUIGI SAKAMOTO</a>
-        </header>
-        <div className="hidden sm:flex sm:flex-row sm:gap-3">
-          <AiOutlineInstagram
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-          <AiOutlineLinkedin
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-          <AiOutlineMail
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-        </div>
-      </div>
-      <div
-        className={`absolute left-0 top-0 z-40 flex h-full transform flex-col
-        gap-10 pb-8 pl-8 pr-8 pt-20 transition-all duration-300 ${
-          open ? 'visible w-80' : 'invisible w-0'
-        } bg-gray-300`}
-      >
-        <IoCloseOutline
-          onClick={() => setOpen(!open)}
-          className={`transform cursor-pointer text-3xl
-        transition
-        duration-200
-        hover:scale-110
-        ${!open && 'scale-0'}`}
-        />
-        <a
+    <div className="fixed left-0 top-0 z-10 mt-10 flex w-full justify-center">
+      <nav className="flex w-auto justify-center gap-6 rounded-full bg-gray-100 pb-4 pl-6 pr-6 pt-4 text-lg drop-shadow-md">
+        <Link
           href="/"
-          onClick={() => setOpen(!open)}
-          className={`transform cursor-pointer text-xl
-        transition
-        duration-200
-        hover:scale-110
-        ${!open && 'text-transparent'}`}
+          className={`transform cursor-pointer select-none transition-all duration-200 hover:scale-105`}
         >
-          PROJETOS
-        </a>
-        <a
+          Home
+        </Link>
+        <Link
           href="/about"
-          onClick={() => setOpen(!open)}
-          className={`transform cursor-pointer text-xl
-        transition
-        duration-200
-        hover:scale-110
-        ${!open && 'text-transparent'}`}
+          className={`transform cursor-pointer select-none transition-all duration-200 ${
+            path.match('/about') ? 'rounded-full bg-white pl-2 pr-2' : ''
+          } hover:scale-105`}
         >
-          SOBRE
-        </a>
-        <a
-          href="/contact"
-          onClick={() => setOpen(!open)}
-          className={`transform cursor-pointer text-xl
-        transition
-        duration-200
-        hover:scale-110
-        ${!open && 'text-transparent'}`}
+          {english ? 'About' : 'Sobre'}
+        </Link>
+        <Link
+          href="/"
+          className={`transform cursor-pointer select-none transition-all duration-200 ${
+            path.match('/projects') ? 'rounded-full bg-white pl-2 pr-2' : ''
+          } hover:scale-105`}
         >
-          CONTATO
-        </a>
-        <div className="flex flex-row gap-3 sm:hidden">
-          <AiOutlineInstagram
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-          <AiOutlineLinkedin
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-          <AiOutlineMail
-            className="transform cursor-pointer text-2xl
-        transition
-        duration-500
-        hover:scale-110"
-          />
-        </div>
-      </div>
-    </>
+          {english ? 'Projects' : 'Projetos'}
+        </Link>
+        <Link
+          href="/"
+          className={`transform cursor-pointer select-none transition-all duration-200 ${
+            path.match('/contact') ? 'rounded-full bg-white pl-2 pr-2' : ''
+          } hover:scale-105`}
+        >
+          {english ? 'Contact' : 'Contato'}
+        </Link>
+      </nav>
+    </div>
   )
 }
