@@ -2,7 +2,7 @@
 import Navbar from '../components/navbar/Navbar'
 import useLanguage from '../utils/language'
 
-export default function Projects() {
+export default function Contact() {
   const { english } = useLanguage()
   return (
     <>
