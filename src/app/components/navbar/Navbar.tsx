@@ -9,7 +9,7 @@ export default function Navbar({ english }: NavbarProps) {
   const path = usePathname()
 
   return (
-    <div className="fixed left-0 top-0 z-10 mt-10 flex w-screen justify-center">
+    <div className="fixed left-0 top-0 z-40 mt-10 flex w-screen justify-center">
       <nav className="flex w-72 justify-between rounded-full bg-blue-50 px-4 py-4 text-sm font-bold drop-shadow-md sm:w-96 sm:px-6 sm:text-lg">
         <Link
           href="/"
