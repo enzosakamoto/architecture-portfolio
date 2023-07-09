@@ -4,6 +4,7 @@ import useLanguage from '../utils/language'
 import Image from 'next/image'
 import avatar from '../assets/avatar.png'
 import { useEffect, useState } from 'react'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 
 export default function About() {
   useEffect(() => {
@@ -60,6 +61,13 @@ export default function About() {
           </article>
         </div>
       </section>
+      <div
+        className={`relative -top-48 z-10 mt-40 flex w-full justify-center transition-all delay-500 duration-500 sm:mt-0 ${
+          fade ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <AiOutlineArrowDown className="animate-bounce rounded-full bg-blue-50 p-2 text-5xl drop-shadow-md" />
+      </div>
       <section className="mb-10 flex flex-col items-center justify-center gap-10 sm:mb-0 sm:h-screen sm:gap-20">
         <p className="text-bold text-2xl font-bold sm:text-3xl lg:text-5xl">
           {english ? 'My experiences' : 'Minhas experiências'}
@@ -94,7 +102,7 @@ export default function About() {
           <div className="flex w-4/5 flex-row">
             {/* <!-- IMT Internship --> */}
             <div
-              className={`flex w-full select-none flex-col gap-2 text-justify text-base transition-all duration-500 xl:text-lg ${
+              className={`flex w-full select-none flex-col gap-2 text-base transition-all duration-500 sm:text-justify xl:text-lg ${
                 container == 1
                   ? 'translate-x-0'
                   : 'absolute -left-96 -top-96 translate-x-10 opacity-0'
@@ -123,7 +131,7 @@ export default function About() {
             </div>
             {/* <!-- IMT Monitor --> */}
             <div
-              className={`flex w-full select-none flex-col gap-2 text-justify text-lg transition-all duration-500 ${
+              className={`flex w-full select-none flex-col gap-2 text-lg transition-all duration-500 sm:text-justify ${
                 container == 2
                   ? 'translate-x-0'
                   : 'absolute -left-96 -top-96 translate-x-10 opacity-0'
@@ -152,7 +160,7 @@ export default function About() {
             </div>
             {/* <!-- Dev. Community Mauá --> */}
             <div
-              className={`flex w-full select-none flex-col gap-2 text-justify text-lg transition-all duration-500 ${
+              className={`flex w-full select-none flex-col gap-2 text-lg transition-all duration-500 sm:text-justify ${
                 container == 3
                   ? 'translate-x-0'
                   : 'absolute -left-96 -top-96 translate-x-10 opacity-0'
