@@ -14,8 +14,8 @@ export default function Navbar({ english }: NavbarProps) {
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-40 ml-10 mt-10 flex w-full transform transition-all duration-300 sm:hidden ${
-          isOpen ? 'z-20 ml-10 opacity-0' : 'delay-300'
+        className={`fixed left-0 top-0 ml-10 mt-10 flex w-full transform transition-all duration-300 sm:hidden ${
+          isOpen ? 'z-20 ml-10 opacity-0' : 'z-40 delay-300'
         }`}
       >
         <IoReorderThree
