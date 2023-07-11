@@ -7,7 +7,7 @@ import { projects } from './projects'
 
 export default function Projects() {
   const { english } = useLanguage()
-  const [fade, setFade] = useState(false)
+  const [fade, setFade] = useState<boolean>(false)
   useEffect(() => {
     setTimeout(() => {
       setFade(true)
