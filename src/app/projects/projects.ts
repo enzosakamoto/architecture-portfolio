@@ -4,6 +4,7 @@ import diq from '../assets/diq.png'
 import imaua from '../assets/imaua.png'
 import nutriapp from '../assets/nutriapp.png'
 import portal from '../assets/portal.png'
+import maualib from '../assets/maualib.png'
 
 interface Project {
   title: string
@@ -65,5 +66,15 @@ export const projects: Project[] = [
     techs: ['Next.js', 'CSS Modules', 'TypeScript'],
     image: portal,
     link: 'https://github.com/Maua-Dev/portal_interno_front'
+  },
+  {
+    title: 'MauáLib | Dev. Community Mauá',
+    titleInEnglish: 'MauáLib | Dev. Community Mauá',
+    text: 'Projeto realizado por membros da entidade Dev. Community Maua, que visa criar uma extensão do site do Instituto Mauá de Tecnologia voltado à Biblioteca da Instituição.',
+    textInEnglish:
+      'Project carried out by members of the Dev. Community Maua entity, which aims to create an extension of the website of the Mauá Institute of Technology focused on the Institution Library.',
+    techs: ['Flutter', 'Dart'],
+    image: maualib,
+    link: 'https://github.com/enzosakamoto/MauaLib'
   }
 ]
