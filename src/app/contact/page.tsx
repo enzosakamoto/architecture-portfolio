@@ -9,6 +9,7 @@ import {
 } from 'react-icons/ai'
 import { MdEmail } from 'react-icons/md'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 interface Form {
   name: string
@@ -32,7 +33,7 @@ export default function Contact() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     alert(
-      `Nome: ${forms.name} \nE-mail: ${forms.email} \nMensagem: ${forms.message}`
+      'E-mail enviado com sucesso! Obrigado por entrar em contato, responderei o mais rápido possível.'
     )
     setForms({
       name: '',
@@ -110,18 +111,33 @@ export default function Contact() {
                 <MdEmail className="text-5xl" />
                 <p className="text-base sm:text-xl">enzo.sak@hotmail.com</p>
               </div>
-              <div className="flex w-full flex-row items-center justify-start gap-4">
+              <Link
+                href="https://www.linkedin.com/in/enzosakamoto/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full transform flex-row items-center justify-start gap-4 transition-all duration-500 hover:scale-105"
+              >
                 <AiOutlineLinkedin className="text-5xl" />
                 <p className="text-base sm:text-xl">Linkedin</p>
-              </div>
-              <div className="flex w-full flex-row items-center justify-start gap-4">
+              </Link>
+              <Link
+                href="https://github.com/enzosakamoto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full transform flex-row items-center justify-start gap-4 transition-all duration-500 hover:scale-105"
+              >
                 <AiOutlineGithub className="text-5xl" />
                 <p className="text-base sm:text-xl">Github</p>
-              </div>
-              <div className="flex w-full flex-row items-center justify-start gap-4">
+              </Link>
+              <Link
+                href="https://www.instagram.com/sakamoto1g/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full transform flex-row items-center justify-start gap-4 transition-all duration-500 hover:scale-105"
+              >
                 <AiOutlineInstagram className="text-5xl" />
                 <p className="text-base sm:text-xl">Instagram</p>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
