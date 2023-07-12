@@ -5,6 +5,7 @@ import Image from 'next/image'
 import avatar from '../assets/avatar.png'
 import { useEffect, useState } from 'react'
 import { AiOutlineArrowDown } from 'react-icons/ai'
+import Link from 'next/link'
 
 export default function About() {
   useEffect(() => {
@@ -66,9 +67,14 @@ export default function About() {
           fade ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <AiOutlineArrowDown className="animate-bounce rounded-full bg-blue-50 p-2 text-5xl drop-shadow-md" />
+        <Link href="#exp" scroll={false}>
+          <AiOutlineArrowDown className="animate-bounce rounded-full bg-blue-50 p-2 text-5xl drop-shadow-md" />
+        </Link>
       </div>
-      <section className="mb-10 flex flex-col items-center justify-center gap-10 sm:mb-0 sm:h-screen sm:gap-20">
+      <section
+        id="exp"
+        className="mb-10 flex flex-col items-center justify-center gap-10 sm:mb-0 sm:h-screen sm:gap-20"
+      >
         <p className="text-bold text-2xl font-bold sm:text-3xl lg:text-5xl">
           {english ? 'My experiences' : 'Minhas experiências'}
         </p>
