@@ -7,11 +7,14 @@ import {
   AiOutlineLinkedin,
   AiOutlineGithub
 } from 'react-icons/ai'
+import { BiLoaderAlt } from 'react-icons/bi'
 import { MdEmail } from 'react-icons/md'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-interface Form {
+export interface Form {
   name: string
   email: string
   message: string
@@ -19,6 +22,7 @@ interface Form {
 
 export default function Contact() {
   const { english } = useLanguage()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [forms, setForms] = useState<Form>({
     name: '',
     email: '',
@@ -30,19 +34,58 @@ export default function Contact() {
       setFade(true)
     }, 200)
   }, [])
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    alert(
-      'E-mail enviado com sucesso! Obrigado por entrar em contato, responderei o mais rápido possível.'
-    )
-    setForms({
-      name: '',
-      email: '',
-      message: ''
-    })
+
+    setIsLoading(true)
+
+    try {
+      await fetch('/api/email', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: forms.name,
+          email: forms.email,
+          message: forms.message
+        })
+      })
+
+      toast.success('E-mail enviado! 😃', {
+        position: 'top-right',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+      })
+
+      setIsLoading(false)
+
+      setForms({
+        name: '',
+        email: '',
+        message: ''
+      })
+    } catch (error) {
+      toast.error('E-mail não enviado, tente novamente! 😥', {
+        position: 'top-right',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+      })
+      console.log(error)
+    }
   }
+
   return (
     <main className="flex flex-col overflow-x-hidden bg-gradient-to-b from-white via-blue-100 to-blue-200 py-20">
+      <ToastContainer />
       <Navbar english={english} />
       <section className="flex w-full transform flex-col items-center justify-center gap-28 py-32 transition-all duration-500">
         <p className="text-5xl font-bold">{english ? 'Contact' : 'Contato'}</p>
@@ -90,13 +133,22 @@ export default function Contact() {
               />
             </div>
             <button
-              onClick={() => handleSubmit}
+              type="submit"
               disabled={
                 forms.name === '' || forms.email === '' || forms.message === ''
               }
               className="transform place-content-center rounded-xl bg-blue-200 px-2 py-2 text-lg font-medium drop-shadow-md transition-all duration-500 hover:scale-105 hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 disabled:hover:scale-100 sm:w-1/6 sm:px-0"
             >
-              Enviar
+              {isLoading ? (
+                <div className="flex w-full flex-row items-center justify-center gap-2">
+                  <BiLoaderAlt className="animate-spin" />
+                  <p>{english ? 'Sending' : 'Enviando'}</p>
+                </div>
+              ) : english ? (
+                'Send'
+              ) : (
+                'Enviar'
+              )}
             </button>
           </form>
           <div className="flex w-full flex-col justify-center p-4 lg:w-1/3">
