@@ -35,6 +35,10 @@ export default function Contact() {
     }, 200)
   }, [])
 
+  // function handleValidation() {
+  //   // TODO
+  // }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
