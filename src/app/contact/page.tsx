@@ -141,7 +141,10 @@ export default function Contact() {
             <button
               type="submit"
               disabled={
-                forms.name === '' || forms.email === '' || forms.message === ''
+                forms.name === '' ||
+                forms.email === '' ||
+                forms.message === '' ||
+                isLoading
               }
               className="transform place-content-center rounded-xl bg-blue-200 px-2 py-2 text-lg font-medium drop-shadow-md transition-all duration-500 hover:scale-105 hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500 disabled:hover:scale-100 sm:w-1/6 sm:px-0"
             >
