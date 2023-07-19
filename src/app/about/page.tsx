@@ -1,11 +1,14 @@
 'use client'
-import Navbar from '../components/navbar/Navbar'
-import useLanguage from '../utils/language'
 import Image from 'next/image'
-import avatar from '../assets/avatar.png'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { AiOutlineArrowDown } from 'react-icons/ai'
-import Link from 'next/link'
+
+import Navbar from '../components/navbar/Navbar'
+
+import useLanguage from '../utils/language'
+
+import avatar from '../assets/avatar.png'
 
 export default function About() {
   useEffect(() => {

@@ -1,17 +1,20 @@
 'use client'
-import Navbar from '../components/navbar/Navbar'
-import useLanguage from '../utils/language'
-import { BiSolidMap } from 'react-icons/bi'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import {
   AiOutlineInstagram,
   AiOutlineLinkedin,
   AiOutlineGithub
 } from 'react-icons/ai'
+import { BiSolidMap } from 'react-icons/bi'
 import { BiLoaderAlt } from 'react-icons/bi'
 import { MdEmail } from 'react-icons/md'
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
+
+import Navbar from '../components/navbar/Navbar'
+
+import useLanguage from '../utils/language'
+
 import 'react-toastify/dist/ReactToastify.css'
 import { Form } from './types'
 

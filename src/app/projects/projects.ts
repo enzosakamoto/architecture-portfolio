@@ -1,10 +1,11 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
-import portfolio from '../assets/portfolio.png'
+
 import diq from '../assets/diq.png'
 import imaua from '../assets/imaua.png'
+import maualib from '../assets/maualib.png'
 import nutriapp from '../assets/nutriapp.png'
 import portal from '../assets/portal.png'
-import maualib from '../assets/maualib.png'
+import portfolio from '../assets/portfolio.png'
 
 interface Project {
   title: string
