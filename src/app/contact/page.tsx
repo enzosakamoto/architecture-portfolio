@@ -13,36 +13,75 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-export interface Form {
-  name: string
-  email: string
-  message: string
-}
+import { Form } from './types'
 
 export default function Contact() {
   const { english } = useLanguage()
+  const [fade, setFade] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [forms, setForms] = useState<Form>({
     name: '',
     email: '',
     message: ''
   })
-  const [fade, setFade] = useState<boolean>(false)
+
   useEffect(() => {
     setTimeout(() => {
       setFade(true)
     }, 200)
   }, [])
 
-  // function handleValidation() {
-  //   // TODO
-  //   // Forms validation
-  //   // Name validation
-  // }
+  useEffect(() => {
+    console.table(forms)
+  }, [forms])
+
+  function handleValidation(): {
+    isValidName: boolean
+    isValidEmail: boolean
+    isValidMessage: boolean
+  } {
+    const { name, email, message } = forms
+    const regexEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
+    const regexName = /^[a-zA-Z ]+$/
+
+    let validation = {
+      isValidName: false,
+      isValidEmail: false,
+      isValidMessage: false
+    }
+
+    if (!regexName.test(name)) {
+      validation = { ...validation, isValidName: true }
+    }
+
+    if (!regexEmail.test(email)) {
+      validation = { ...validation, isValidEmail: true }
+    }
+
+    if (message === '' || message.length < 4) {
+      validation = { ...validation, isValidMessage: true }
+    }
+
+    return validation
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const { isValidName, isValidEmail, isValidMessage } = handleValidation()
+
+    if (isValidName || isValidEmail || isValidMessage) {
+      return toast.warn('Preencha os campos corretamente! 🙄', {
+        position: 'top-right',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored'
+      })
+    }
 
     setIsLoading(true)
 
@@ -67,8 +106,6 @@ export default function Contact() {
         theme: 'colored'
       })
 
-      setIsLoading(false)
-
       setForms({
         name: '',
         email: '',
@@ -85,7 +122,8 @@ export default function Contact() {
         progress: undefined,
         theme: 'colored'
       })
-      console.log(error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -112,7 +150,7 @@ export default function Contact() {
                 type="text"
                 value={forms.name}
                 onChange={(e) => setForms({ ...forms, name: e.target.value })}
-                className="transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-500 focus:border-blue-800"
+                className={`${'transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-500 focus:border-blue-800'}`}
               />
             </div>
             <div className="flex w-full flex-col gap-2 text-xl">

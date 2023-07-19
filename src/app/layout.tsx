@@ -1,4 +1,5 @@
 import './globals.css'
+// eslint-disable-next-line camelcase
 import { Fira_Code } from 'next/font/google'
 
 const firaCode = Fira_Code({

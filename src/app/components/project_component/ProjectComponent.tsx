@@ -1,14 +1,6 @@
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Link from 'next/link'
 import Image from 'next/image'
-
-type ProjectComponentProps = {
-  image: StaticImport
-  title: string
-  text: string
-  techs: string[]
-  link: string
-}
+import { ProjectComponentProps } from './types'
 
 function formatTechs(techs: string[]) {
   let techsString = '💻:'
