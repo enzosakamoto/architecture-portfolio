@@ -1,9 +1,12 @@
 'use client'
-import Navbar from './components/navbar/Navbar'
-import useLanguage from './utils/language'
 import Image from 'next/image'
-import avatar from './assets/avatar.png'
 import { useEffect, useState } from 'react'
+
+import Navbar from './components/navbar/Navbar'
+
+import useLanguage from './utils/language'
+
+import avatar from './assets/avatar.png'
 
 export default function Home() {
   const { english, changeLanguage } = useLanguage()

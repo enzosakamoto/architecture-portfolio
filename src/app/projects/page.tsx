@@ -1,8 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
+
 import Navbar from '../components/navbar/Navbar'
 import ProjectComponent from '../components/project_component/ProjectComponent'
+
 import useLanguage from '../utils/language'
+
 import { projects } from './projects'
 
 export default function Projects() {

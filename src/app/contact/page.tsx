@@ -1,22 +1,28 @@
 'use client'
-import Navbar from '../components/navbar/Navbar'
-import useLanguage from '../utils/language'
-import { BiSolidMap } from 'react-icons/bi'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import {
   AiOutlineInstagram,
   AiOutlineLinkedin,
   AiOutlineGithub
 } from 'react-icons/ai'
+import { BiSolidMap } from 'react-icons/bi'
 import { BiLoaderAlt } from 'react-icons/bi'
 import { MdEmail } from 'react-icons/md'
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify'
+
+import Navbar from '../components/navbar/Navbar'
+
+import useLanguage from '../utils/language'
+
 import 'react-toastify/dist/ReactToastify.css'
 import { Form } from './types'
 
 export default function Contact() {
   const { english } = useLanguage()
+  const [isNameValid, setIsNameValid] = useState<boolean>(true)
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
+  const [isMessageValid, setIsMessageValid] = useState<boolean>(true)
   const [fade, setFade] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [forms, setForms] = useState<Form>({
@@ -32,45 +38,34 @@ export default function Contact() {
   }, [])
 
   useEffect(() => {
-    console.table(forms)
-  }, [forms])
+    const regexName = /^[a-zA-Z]{3,}$/
 
-  function handleValidation(): {
-    isValidName: boolean
-    isValidEmail: boolean
-    isValidMessage: boolean
-  } {
-    const { name, email, message } = forms
+    if (forms.name.length > 0) {
+      if (regexName.test(forms.name)) setIsNameValid(true)
+      else setIsNameValid(false)
+    }
+  }, [forms.name])
+
+  useEffect(() => {
     const regexEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
-    const regexName = /^[a-zA-Z ]+$/
 
-    let validation = {
-      isValidName: false,
-      isValidEmail: false,
-      isValidMessage: false
+    if (forms.email.length > 0) {
+      if (regexEmail.test(forms.email)) setIsEmailValid(true)
+      else setIsEmailValid(false)
     }
+  }, [forms.email])
 
-    if (!regexName.test(name)) {
-      validation = { ...validation, isValidName: true }
+  useEffect(() => {
+    if (forms.message.length > 0) {
+      if (forms.message.length >= 4) setIsMessageValid(true)
+      else setIsMessageValid(false)
     }
-
-    if (!regexEmail.test(email)) {
-      validation = { ...validation, isValidEmail: true }
-    }
-
-    if (message === '' || message.length < 4) {
-      validation = { ...validation, isValidMessage: true }
-    }
-
-    return validation
-  }
+  }, [forms.message])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const { isValidName, isValidEmail, isValidMessage } = handleValidation()
-
-    if (isValidName || isValidEmail || isValidMessage) {
+    if (!isNameValid || !isEmailValid || !isMessageValid) {
       return toast.warn('Preencha os campos corretamente! 🙄', {
         position: 'top-right',
         autoClose: 2500,
@@ -150,7 +145,11 @@ export default function Contact() {
                 type="text"
                 value={forms.name}
                 onChange={(e) => setForms({ ...forms, name: e.target.value })}
-                className={`${'transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-500 focus:border-blue-800'}`}
+                className={`${
+                  isNameValid
+                    ? 'transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-700 focus:border-blue-800'
+                    : 'transform border-b-2 border-red-400 bg-transparent outline-none transition-all duration-700'
+                }`}
               />
             </div>
             <div className="flex w-full flex-col gap-2 text-xl">
@@ -161,7 +160,11 @@ export default function Contact() {
                 type="text"
                 value={forms.email}
                 onChange={(e) => setForms({ ...forms, email: e.target.value })}
-                className="transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-500 focus:border-blue-800"
+                className={`${
+                  isEmailValid
+                    ? 'transform border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-700 focus:border-blue-800'
+                    : 'transform border-b-2 border-red-400 bg-transparent outline-none transition-all duration-700'
+                }`}
               />
             </div>
             <div className="flex w-full flex-col gap-2 text-xl">
@@ -173,7 +176,11 @@ export default function Contact() {
                 onChange={(e) =>
                   setForms({ ...forms, message: e.target.value })
                 }
-                className="h-20 transform resize-none border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-500 focus:border-blue-800"
+                className={`${
+                  isMessageValid
+                    ? 'h-20 transform resize-none border-b-2 border-blue-400 bg-transparent outline-none transition-all duration-700 focus:border-blue-800'
+                    : 'h-20 transform resize-none border-b-2 border-red-400 bg-transparent outline-none transition-all duration-700'
+                }`}
               />
             </div>
             <button
