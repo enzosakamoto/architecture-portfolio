@@ -1,5 +1,6 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
+import mss from '../assets/diq-mss.png'
 import diq from '../assets/diq.png'
 import imaua from '../assets/imaua.png'
 import maualib from '../assets/maualib.png'
@@ -34,9 +35,19 @@ export const projects: Project[] = [
     text: 'Site com parceiros da Divisão de Inovação e Qualidade do Centro de Pesquisa do Instituto Mauá de Tecnologia.',
     textInEnglish:
       'Website with partners from the Innovation and Quality Division of the Mauá Institute of Technology Research Center.',
-    techs: ['Next.js', 'CSS Modules', 'TypeScript', 'Vercel'],
+    techs: ['ReactJS', 'TailwindCSS', 'TypeScript'],
     image: diq,
     link: 'https://github.com/enzosakamoto/diq-cp'
+  },
+  {
+    title: 'Microsserviço | DIQ-CP',
+    titleInEnglish: 'Microservices | DIQ-CP',
+    text: 'API RESTful baseada em princípios SOLID para controle e gerenciamento de dados dos parceiros da DIQ-CP.',
+    textInEnglish:
+      'RESTful API based in SOLID principles for data controll and management of DIP-CP Partners.',
+    techs: ['Node.js', 'TypeScript', 'Express.js', 'MongoDB Atlas'],
+    image: mss,
+    link: 'https://github.com/enzosakamoto/diq-mss-companies'
   },
   {
     title: 'iMauá',
@@ -64,7 +75,7 @@ export const projects: Project[] = [
     text: 'Portal interno para os membros da entidade Dev. Community Mauá, para controle de horas e registro de atividades e projetos.',
     textInEnglish:
       'Internal portal for members of the Dev. Community Mauá entity, for time control and registration of activities and projects.',
-    techs: ['Next.js', 'CSS Modules', 'TypeScript'],
+    techs: ['ReactJS', 'TailwindCSS', 'TypeScript'],
     image: portal,
     link: 'https://github.com/Maua-Dev/portal_interno_front'
   },
