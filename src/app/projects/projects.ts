@@ -20,22 +20,12 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Portfolio',
-    titleInEnglish: 'Portfolio',
-    text: 'Meu portfolio pessoal, que reúne todos os meus projetos e informações importantes sobre mim.',
-    textInEnglish:
-      'My personal portfolio, which gathers all my projects and important information about me.',
-    techs: ['Next.js', 'TailwindCSS', 'TypeScript', 'Vercel'],
-    image: portfolio,
-    link: 'https://github.com/enzosakamoto/nextjs-portfolio'
-  },
-  {
     title: 'Site | DIQ-CP',
     titleInEnglish: 'Website | DIQ-CP',
     text: 'Site com parceiros da Divisão de Inovação e Qualidade do Centro de Pesquisa do Instituto Mauá de Tecnologia.',
     textInEnglish:
       'Website with partners from the Innovation and Quality Division of the Mauá Institute of Technology Research Center.',
-    techs: ['ReactJS', 'TailwindCSS', 'TypeScript'],
+    techs: ['ReactJS', 'TailwindCSS', 'TypeScript', 'Vercel'],
     image: diq,
     link: 'https://github.com/enzosakamoto/diq-cp'
   },
@@ -45,9 +35,29 @@ export const projects: Project[] = [
     text: 'API RESTful baseada em princípios SOLID para controle e gerenciamento de dados dos parceiros da DIQ-CP.',
     textInEnglish:
       'RESTful API based in SOLID principles for data controll and management of DIP-CP Partners.',
-    techs: ['Node.js', 'TypeScript', 'Express.js', 'MongoDB Atlas'],
+    techs: ['Node.js', 'TypeScript', 'Express.js', 'MongoDB Atlas', 'Vercel'],
     image: mss,
     link: 'https://github.com/enzosakamoto/diq-mss-companies'
+  },
+  {
+    title: 'Portal Interno | Dev. Community Mauá',
+    titleInEnglish: 'Internal Portal | Dev. Community Mauá',
+    text: 'Portal interno para os membros da entidade Dev. Community Mauá, para controle de horas e registro de atividades e projetos.',
+    textInEnglish:
+      'Internal portal for members of the Dev. Community Mauá entity, for time control and registration of activities and projects.',
+    techs: ['ReactJS', 'TailwindCSS', 'TypeScript', 'AWS Amplify'],
+    image: portal,
+    link: 'https://github.com/Maua-Dev/portal_interno_front'
+  },
+  {
+    title: 'Portfolio',
+    titleInEnglish: 'Portfolio',
+    text: 'Meu portfolio pessoal, que reúne todos os meus projetos e informações importantes sobre mim.',
+    textInEnglish:
+      'My personal portfolio, which gathers all my projects and important information about me.',
+    techs: ['Next.js', 'TailwindCSS', 'TypeScript', 'Vercel'],
+    image: portfolio,
+    link: 'https://github.com/enzosakamoto/nextjs-portfolio'
   },
   {
     title: 'iMauá',
@@ -69,16 +79,7 @@ export const projects: Project[] = [
     image: nutriapp,
     link: 'https://github.com/enzosakamoto/nutri-app'
   },
-  {
-    title: 'Portal Interno | Dev. Community Mauá',
-    titleInEnglish: 'Internal Portal | Dev. Community Mauá',
-    text: 'Portal interno para os membros da entidade Dev. Community Mauá, para controle de horas e registro de atividades e projetos.',
-    textInEnglish:
-      'Internal portal for members of the Dev. Community Mauá entity, for time control and registration of activities and projects.',
-    techs: ['ReactJS', 'TailwindCSS', 'TypeScript'],
-    image: portal,
-    link: 'https://github.com/Maua-Dev/portal_interno_front'
-  },
+
   {
     title: 'MauáLib | Dev. Community Mauá',
     titleInEnglish: 'MauáLib | Dev. Community Mauá',

@@ -24,7 +24,7 @@ export default function ProjectComponent({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex w-full transform cursor-pointer transition-all duration-500 hover:scale-105"
+      className="flex h-auto w-full transform cursor-pointer transition-all duration-500 hover:scale-105 sm:h-80"
     >
       <div className="flex flex-col items-center justify-center rounded-r-xl border-l-2 border-blue-400 bg-blue-50 py-8 drop-shadow-md transition-all duration-500 hover:border-blue-800 sm:flex-row sm:items-start sm:justify-start">
         <Image
