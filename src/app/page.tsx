@@ -68,7 +68,11 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <aside className="flex w-8/12 justify-center md:w-1/3 lg:w-1/4">
+        <aside
+          className={`flex w-8/12 transform justify-center transition-all delay-1000 duration-500 ${
+            fade ? 'opacity-100' : 'opacity-0'
+          } md:w-1/3 lg:w-1/4`}
+        >
           <Image
             className="w-full rounded-full drop-shadow-md sm:w-10/12"
             src={avatar}
