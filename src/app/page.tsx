@@ -6,7 +6,7 @@ import Navbar from './components/navbar/Navbar'
 
 import useLanguage from './utils/language'
 
-import avatar from './assets/avatar.png'
+// import avatar from './assets/avatar.png'
 
 export default function Home() {
   const { english, changeLanguage } = useLanguage()
@@ -75,7 +75,8 @@ export default function Home() {
         >
           <Image
             className="w-full rounded-full drop-shadow-md sm:w-10/12"
-            src={avatar}
+            // src={avatar}
+            src="https://media.licdn.com/dms/image/v2/D4D03AQFss8EJsQBdfA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732322185032?e=1737590400&v=beta&t=R5qJNC7xLVeJ_nayeQdRlIEMQhO62g2zPQJ7ggGChK0"
             alt="Profile picture"
           />
         </aside>
