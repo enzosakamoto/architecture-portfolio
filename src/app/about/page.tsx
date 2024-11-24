@@ -8,7 +8,7 @@ import Navbar from '../components/navbar/Navbar'
 
 import useLanguage from '../utils/language'
 
-import avatar from '../assets/avatar.png'
+import avatar from '../assets/profile.jpeg'
 
 export default function About() {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function About() {
         </p>
         <div className="flex flex-col items-center justify-center gap-10 px-8 sm:px-16 md:px-32 xl:flex-row">
           <Image
-            className={`flex w-1/2 max-w-lg transform justify-center drop-shadow-md transition-all duration-300 ${
+            className={`flex max-h-[380px] w-1/2 max-w-[380px] transform justify-center rounded-full drop-shadow-md transition-all duration-300 ${
               fade ? 'opacity-100' : 'opacity-0'
             } sm:w-1/3 xl:w-1/2`}
             src={avatar}
@@ -41,8 +41,8 @@ export default function About() {
           >
             <p>
               {english
-                ? 'My name is Enzo Yuji Sakamoto, I am 21 years old and I am from São Paulo, SP.'
-                : 'Me chamo Enzo Yuji Sakamoto, tenho 21 anos e sou de São Paulo, SP.'}
+                ? 'My name is Enzo Yuji Sakamoto, I am 22 years old and I am from São Paulo, SP.'
+                : 'Me chamo Enzo Yuji Sakamoto, tenho 22 anos e sou de São Paulo, SP.'}
             </p>
             <p>
               {english
@@ -51,19 +51,19 @@ export default function About() {
             </p>
             <p className="font-bold">
               {english
-                ? 'I am a Computer Engineering student at Instituto Mauá de Tecnologia. I am focused on learning, more precisely, Python, Next.js, Typescript and others developments technologies.'
-                : 'Estudante de Engenharia de Computação no Instituto Mauá de Tecnologia. Estou focado em aprender, mais precisamente, Python, Next.js, Typescript, além de outras tecnologias de desenvolvimento.'}
+                ? 'I am a Computer Engineering student at Instituto Mauá de Tecnologia. I am focused on learning, more precisely, AWS, SOLID and others developments technologies.'
+                : 'Estudante de Engenharia de Computação no Instituto Mauá de Tecnologia. Estou focado em aprender, mais precisamente, AWS, SOLID, além de outras tecnologias de desenvolvimento.'}
             </p>
             <p>
               {english
                 ? 'I consider myself competent, agile and extremely good humored!'
                 : 'Me considero competente, ágil e extremamente bem humorado!'}
             </p>
-            <p className="font-bold">
+            {/* <p className="font-bold">
               {english
                 ? 'Currently, I am looking for an internship position as a Junior Front-End Developer.'
                 : 'Atualmente, estou a procura de uma vaga de estágio como Desenvolvedor Júnior Front-End.'}
-            </p>
+            </p> */}
           </article>
         </div>
       </section>
