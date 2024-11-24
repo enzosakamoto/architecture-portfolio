@@ -28,6 +28,7 @@ export default function About() {
         </p>
         <div className="flex flex-col items-center justify-center gap-10 px-8 sm:px-16 md:px-32 xl:flex-row">
           <Image
+            draggable={false}
             className={`flex max-h-[380px] w-1/2 max-w-[380px] transform justify-center rounded-full drop-shadow-md transition-all duration-300 ${
               fade ? 'opacity-100' : 'opacity-0'
             } sm:w-1/3 xl:w-1/2`}

@@ -75,6 +75,7 @@ export default function Home() {
         >
           <Image
             className="w-full rounded-full drop-shadow-md sm:w-10/12"
+            draggable={false}
             src={avatar}
             alt="Profile picture"
           />
